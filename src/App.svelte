@@ -26,7 +26,6 @@ let blurred = false;
 $: {
 
   // original totalHours logic
-  
   totalHours = shifts.reduce((sum, shift) => {
     return sum + parseFloat(shift.hours) || 0;
   }, 0);
@@ -39,7 +38,6 @@ $: {
 
   // other totals
   totalPay = totalHours * wage;
-
   afterTax = totalPay - (totalPay * (taxRate / 100)); 
 
 }
@@ -83,19 +81,19 @@ function formatShiftHours(shift) {
 	
   <div class="inputs">
 		
-	    {#each shifts as shift, i}
-	      <div class="single-shift">
-	        <input on:blur={handleBlur} type="text" bind:value={shift.hours} placeholder="hours worked" />
-	        <button class="remove-single-shift" on:click={() => removeShift(i)}>&#8211;&#8211;</button>
-	      </div>
-	    {/each}
+			{#each shifts as shift, i}
+				<div class="single-shift">
+					<input on:blur={handleBlur} type="text" bind:value={shift.hours} placeholder="hours worked" />
+					<button class="remove-single-shift" on:click={() => removeShift(i)}>&#8211;&#8211;</button>
+				</div>
+			{/each}
 	
-	    <button on:click={addShift}>Add Shift</button>
+			<button on:click={addShift}>Add Shift</button>
 		
 			<div class="row-hourly_wage">
-		    <input type="number" min="0" bind:value={wage} placeholder="hourly wage" />
-		    <select class="select-currency_symbol" bind:value={currency}>
-		      <option value="&#36;">$</option>
+				<input type="number" min="0" bind:value={wage} placeholder="hourly wage" />
+				<select class="select-currency_symbol" bind:value={currency}>
+					<option value="&#36;">$</option>
 					<option value="&#8364;">&#8364;</option>
 					<option value="&#165;">&#165;</option>
 					<option value="&#163;">&#163;</option>
@@ -111,10 +109,10 @@ function formatShiftHours(shift) {
 					<option value="&#107;&#114;">kr</option>
 					<option value="&#107;&#114;">Nkr</option> 
 					<option value="&#82;&#112;">Rp</option>
-		    </select>
+				</select>
 			</div>
 
-	    <input type="number" min="0" bind:value={taxRate} placeholder="taxes & fees (%)"/>
+			<input type="number" min="0" bind:value={taxRate} placeholder="taxes & fees (%)"/>
 
   </div>
 
@@ -188,13 +186,13 @@ function formatShiftHours(shift) {
 	
 
 	button:hover {
-	  animation: pulse 0.75s;
+		animation: pulse 0.75s;
 	}
 
 	@keyframes pulse {
-	  0% { transform: scale(1); }
-	  50% { transform: scale(1.075); }
-	  100% { transform: scale(1); }
+		0% { transform: scale(1); }
+		50% { transform: scale(1.075); }
+		100% { transform: scale(1); }
 	}
 
 	select {
