@@ -72,6 +72,11 @@ function formatShiftHours(shift) {
 
 </script>
 
+<svelte:head>
+  <title>TimeCalc 2.0</title>
+	<link href="/build/favicon.ico" rel="icon" />
+</svelte:head>
+
 <header>
 	<h1>TimeCalc 2.0</h1>
 	<p>Calc-You-Later!</p>
@@ -237,9 +242,8 @@ function formatShiftHours(shift) {
   }
 
 	footer {
-		position: absolute;
-		bottom: 6px;
-		left: 9px;
+		text-align: center;
+		margin-top: 1rem;
 	}
 
 	@media (max-width: 369px) {
@@ -272,5 +276,6 @@ function formatShiftHours(shift) {
     /* padding: 10px 0; */
   }
 	
+}
 
 </style>
